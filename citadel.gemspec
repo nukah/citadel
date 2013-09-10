@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "citadel"
-  s.version = "0.0.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mighty"]
   s.date = "2013-09-10"
-  s.description = "Gateway for ActiveDirectory"
+  s.description = "TODO: longer description of your gem"
   s.email = "flow.energy@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -20,10 +20,18 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
+    "citadel.gemspec",
     "lib/citadel.rb",
+    "lib/citadel/backend.rb",
+    "lib/citadel/connector.rb",
+    "spec/backend_spec.rb",
+    "spec/connector_spec.rb",
+    "spec/fixtures/default.ldif",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/nukah/citadel"
@@ -40,20 +48,20 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.7"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<net-ldap>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
     s.add_dependency(%q<net-ldap>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.8.0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.7"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
 
