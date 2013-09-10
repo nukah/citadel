@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/nukah/citadel"
   gem.license = "MIT"
   gem.summary = %Q{Gateway for ActiveDirectory}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{Gateway for ActiveDirectory}
   gem.email = "flow.energy@gmail.com"
   gem.authors = ["Mighty"]
   # dependencies defined in Gemfile
