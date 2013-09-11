@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "citadel"
-  s.version = "0.2.0"
+  s.version = "2.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mighty"]
-  s.date = "2013-09-10"
+  s.date = "2013-09-11"
   s.description = "Gateway for ActiveDirectory"
   s.email = "flow.energy@gmail.com"
   s.extra_rdoc_files = [
@@ -49,12 +49,16 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<pry>, [">= 0"])
+      s.add_development_dependency(%q<require_all>, [">= 0"])
     else
       s.add_dependency(%q<net-ldap>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<pry>, [">= 0"])
+      s.add_dependency(%q<require_all>, [">= 0"])
     end
   else
     s.add_dependency(%q<net-ldap>, [">= 0"])
@@ -62,6 +66,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<pry>, [">= 0"])
+    s.add_dependency(%q<require_all>, [">= 0"])
   end
 end
 

@@ -35,6 +35,8 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    ladle (0.2.0)
+      open4 (~> 1.0.0)
     method_source (0.8.2)
     multi_json (1.8.0)
     multi_xml (0.5.5)
@@ -48,6 +50,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
       rack (~> 1.2)
+    open4 (1.0.1)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -73,6 +76,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.0)
   jeweler!
+  ladle
   net-ldap
   pry
   rdoc (~> 3.12)

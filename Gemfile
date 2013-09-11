@@ -8,3 +8,6 @@ group :development do
   gem "pry"
   gem "require_all"
 end
+group :test do
+  gem "ladle"
+end
