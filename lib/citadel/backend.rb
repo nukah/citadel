@@ -1,12 +1,14 @@
+require 'yaml'
 module Citadel
   class Backend
     class Unconnected < Exception; end;
     class ConfigNotFound < Exception; end;
+    attr_reader :connection
 
     def initialize config
       raise ConfigNotFound, "Provided config path #{config} not found." unless File.exists?(config)
       cnf = YAML::load(File.open(File.expand_path(config)))['fort']
-      @connection = Fort::Connector.new host: cnf[:host], port: cnf[:port], username: cnf[:username], password: cnf[:password], dn: cnf[:dn]
+      @connection = Citadel::Connector.new host: cnf['hostname'], port: cnf['port'], username: cnf['username'], password: cnf['password'], dn: cnf['base_dn']
     end
 
     def delete_element dn

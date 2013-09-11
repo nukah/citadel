@@ -5,4 +5,6 @@ group :development do
   gem "rdoc", "~> 3.12"
   gem "bundler", "~> 1.0"
   gem "jeweler", :git => 'https://github.com/technicalpickles/jeweler.git'
+  gem "pry"
+  gem "require_all"
 end

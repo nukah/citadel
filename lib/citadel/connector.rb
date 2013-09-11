@@ -2,7 +2,15 @@ require 'net/ldap'
 
 module Citadel
   class Connector
-    attr_reader :session, :connected
+    attr_reader :session
+    ATTRIBUTES = {
+      'objectguid'      => :id,
+      'name'            => :name,
+      'mail'            => :mail,
+      'telephoneNumber' => :phone,
+      'mobile'          => :mobile,
+      'title'           => :title
+    }
 
     def initialize attributes = {}
       ldap_hostname = attributes[:host]
@@ -29,19 +37,19 @@ module Citadel
 
     def search dn, filters
       filter = Citadel::Filter.transform(filters) if filters
-      repository = Array.new
+      repository = []
       @session.search(base: dn, filter: filter) do |entry|
-        repository << {
-          name: entry['name'].first,
-          mail: entry['mail'].first,
-          departments: entry.dn.split(',').keep_if { |entry| /OU=/.match(entry) }.map { |entry| entry.sub /OU=/, '' },
-          phone: entry['telephoneNumber'].first,
-          title: entry['title'].first,
-          mobile_phone: entry['mobile'].first,
-          dn: entry.dn
+        record = {}
+        ATTRIBUTES.each { |key, attribute|
+          record[attribute] = entry[key].first
         }
+        record[:dn] = entry.dn
+        record[:departments] = entry.dn.split(',').keep_if { |entry| /OU=/.match(entry) }.map { |entry| entry.sub /OU=/, '' }
+        record[:changed] = DateTime.parse(entry['whenchanged'].first)
+        record[:created] = DateTime.parse(entry['whencreated'].first)
+        repository << record
       end
-      return repository
+      repository
     end
 
     def delete dn
