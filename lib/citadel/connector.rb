@@ -21,12 +21,12 @@ module Citadel
 
       @base_dn = attributes[:dn]
 
-      @session = Net::LDAP.new host: ldap_hostname, port: ldap_port
+      @session = Net::LDAP.new host: ldap_hostname, port: ldap_port, base: @base_dn, verbose: true
       @session.auth(ldap_username, ldap_password) if (ldap_username && ldap_password)
-      begin
-        @session.bind
+      if @session.bind
         @connected = true
-      rescue
+      else
+        puts "Connection failed. Error: #{@session.get_operation_result.message}"
         @connected = false
       end
     end
@@ -47,9 +47,10 @@ module Citadel
         record[:departments] = entry.dn.split(',').keep_if { |entry| /OU=/.match(entry) }.map { |entry| entry.sub /OU=/, '' }
         record[:changed] = DateTime.parse(entry['whenchanged'].first)
         record[:created] = DateTime.parse(entry['whencreated'].first)
+        puts record
         repository << record
       end
-      repository
+      return repository
     end
 
     def delete dn
