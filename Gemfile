@@ -1,5 +1,6 @@
 source "http://rubygems.org"
-gem 'net-ldap'
+#gem 'net-ldap'
+gem 'net-ldap', git: 'https://github.com/ruby-ldap/ruby-net-ldap.git'
 group :development do
   gem "rspec", "~> 2.8.0"
   gem "rdoc", "~> 3.12"

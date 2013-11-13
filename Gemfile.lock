@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/ruby-ldap/ruby-net-ldap.git
+  revision: bbef82f22494864f5c0e53d4dffb21cead3fc274
+  specs:
+    net-ldap (0.5.0)
+
+GIT
   remote: https://github.com/technicalpickles/jeweler.git
   revision: f7e0a55a207d83f56637dd8fbabf26a803410faf
   specs:
@@ -41,7 +47,6 @@ GEM
     multi_json (1.8.0)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    net-ldap (0.3.1)
     nokogiri (1.5.10)
     oauth2 (0.9.2)
       faraday (~> 0.8)
@@ -77,7 +82,7 @@ DEPENDENCIES
   bundler (~> 1.0)
   jeweler!
   ladle
-  net-ldap
+  net-ldap!
   pry
   rdoc (~> 3.12)
   require_all

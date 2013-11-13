@@ -41,13 +41,12 @@ module Citadel
       @session.search(base: dn, filter: filter) do |entry|
         record = {}
         ATTRIBUTES.each { |key, attribute|
-          record[attribute] = entry[key].first
+          record[attribute] = entry[key].first.force_encoding('UTF-8') if entry[key].first
         }
         record[:dn] = entry.dn
         record[:departments] = entry.dn.split(',').keep_if { |entry| /OU=/.match(entry) }.map { |entry| entry.sub /OU=/, '' }
         record[:changed] = DateTime.parse(entry['whenchanged'].first)
         record[:created] = DateTime.parse(entry['whencreated'].first)
-        puts record
         repository << record
       end
       return repository
